@@ -150,21 +150,21 @@ public class ContentStreamWriter
 					}
 
 					// Is Tomcat's SendFile support available?
-					if( contentLength > 0
-						&& Boolean.TRUE.equals(request.getAttribute("org.apache.tomcat.sendfile.support"))
-						&& directFile != null )
-					{
-						final long start = range == NOT_RANGE_REQUEST ? 0L : range[0];
-						final long end = range == NOT_RANGE_REQUEST ? contentLength : range[1];
-
-						request.setAttribute("org.apache.tomcat.sendfile.filename", directFile.getCanonicalPath());
-						request.setAttribute("org.apache.tomcat.sendfile.start", start);
-						request.setAttribute("org.apache.tomcat.sendfile.end", end);
-					}
-					else
-					{
+//					if( contentLength > 0
+//						&& Boolean.TRUE.equals(request.getAttribute("org.apache.tomcat.sendfile.support"))
+//						&& directFile != null )
+//					{
+//						final long start = range == NOT_RANGE_REQUEST ? 0L : range[0];
+//						final long end = range == NOT_RANGE_REQUEST ? contentLength : range[1];
+//
+//						request.setAttribute("org.apache.tomcat.sendfile.filename", directFile.getCanonicalPath());
+//						request.setAttribute("org.apache.tomcat.sendfile.start", start);
+//						request.setAttribute("org.apache.tomcat.sendfile.end", end);
+//					}
+//					else
+//					{
 						serveFromStream(response, contentStream, outputStream, range);
-					}
+//					}
 				}
 			}
 		}
